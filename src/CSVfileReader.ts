@@ -1,11 +1,12 @@
 import fs from "fs";
 import { MatchResults } from "./MatchResults";
 import { dateConverter } from "./utils";
+type MatchData = [Date, string, string, number, number, MatchResults];
 export class FileReader {
-	data: string[][] = [];
+	data: MatchData[] = [];
 
 	constructor(public fileName: string) {}
-	public read(): string[][] {
+	public read(): MatchData[] {
 		this.data = fs
 			.readFileSync(this.fileName, {
 				encoding: "utf-8",
