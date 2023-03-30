@@ -27,6 +27,7 @@ class FileReader {
                 item[3],
                 parseInt(item[4]),
                 parseInt(item[5]),
+                item[6],
             ];
         });
         return this.data;
