@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.dateConverter = void 0;
 const dateConverter = (date) => {
-    if (date != undefined) {
+    if (date) {
         let newDate = date.split("/").map((item) => {
             return parseInt(item);
         });
@@ -13,5 +13,6 @@ const dateConverter = (date) => {
         const day = res.getUTCDate();
         return new Date(Date.UTC(year, month - 1, day));
     }
+    return new Date(Date.UTC(2018, 11 - 1, 3));
 };
 exports.dateConverter = dateConverter;

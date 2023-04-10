@@ -18,8 +18,8 @@ class FileReader {
             .split("\n")
             .map((item) => {
             return item.split(",");
-        });
-        console.log(this.data);
+        })
+            .map(this.mapRow);
     }
 }
 exports.FileReader = FileReader;

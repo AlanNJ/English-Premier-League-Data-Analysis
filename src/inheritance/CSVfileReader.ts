@@ -1,10 +1,10 @@
 import fs from "fs";
 
-// Works for all CSV files
-export class FileReader {
-	data: string[][] = [];
-
+export abstract class FileReader<T> {
+	data: T[] = [];
 	constructor(public fileName: string) {}
+	abstract mapRow(item: string[]): T;
+
 	public read(): void {
 		this.data = fs
 			.readFileSync(this.fileName, {
@@ -13,7 +13,7 @@ export class FileReader {
 			.split("\n")
 			.map((item): string[] => {
 				return item.split(",");
-			});
-		console.log(this.data);
+			})
+			.map(this.mapRow);
 	}
 }
